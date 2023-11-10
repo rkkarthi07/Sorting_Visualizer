@@ -19,7 +19,6 @@ header{
 h2 {
     color: black;
     font-size: 34px;
-
 }
 
 .block {
@@ -72,16 +71,12 @@ button:hover {
     color: black;
     background-color: white;
 }
-
 .slidecontainer {
     margin:15px 15px;
     color: black;
     font-weight: bolder;
 }
-.slidecontainer > button{
-    margin-top: 10px;
-    margin-right:10px;
-}
+
 select {
     font-size: 16px;
     padding: 4px;
@@ -110,7 +105,8 @@ select {
   }
   
 #info {
-    margin-right: 15px;
+    margin-right: 2%;
+    width: max-content;
     background: rgb(9, 9, 9);
     color: white;
     padding: 10px 10px;
@@ -156,34 +152,52 @@ footer{
     text-align: center;
     font-weight: 600;
     padding: 10px;
-    margin-top: 5px;
     background-color: rgb(243, 243, 181) ;
     box-shadow: 5px 0px 8px rgba(0, 0, 0, 0.9);
 }
-@media screen and (max-width: 480px) {
-    *{
-        padding: 0;
-        margin:0;
+@media screen and (max-width: 960px) {
+    header{
+      padding: 12px;
     }
-    body{
-        display: block;
-        
+    header h2{
+      font-size:45px;
     }
-    .block{
-         width: 5px;
+    label {
+        font-size: 24px;
     }
-    .slidecontainer{
-        width:50vw;
-    }
-    #info strong{
-        width: max-content;
+    input{
+        width:300px;
+        margin-bottom:20px;
     }
     #info{
-        padding: 0;
-        width:100px;
+      width:max-content;
+      height:max-content;
+      font-size:18px;
     }
+     select{
+       height:45px;
+     }
+     button{
+       height:45px;
+       margin-right:10px
+     }
+     #array{
+       height:50vh;
+     }
+    .time{
+      margin-left:10vw;
+     }
+    .time p{
+     font-size:24px;
+     }
+    .time center{
+     font-size:26px;
+    }
+     footer{
+     font-size:26px;
+     }
+    
 }
-
 
 
 

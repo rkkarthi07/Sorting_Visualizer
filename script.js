@@ -2,25 +2,29 @@ let isPaused = false;
 let timerInterval;
 let seconds = 0;
 const pause = (timeoutMsec) => new Promise(resolve => setTimeout(resolve, timeoutMsec))
-
-let size = 45// size of array to be created 
-let dist = 30//distance in blocks
 let speed = 5//to control speed using delay function
 let arr = []
 let pre;
+let width = window.innerWidth;
+let size = 50// size of array to be created 
+let dist = 30//distance in blocks
+if (width <= 960) {
+    size = Math.ceil(size / 3.2);
+}
 let conid = document.getElementById('array')
 let flag = true;
 // slider input for array size
-slider = document.getElementById('myRange')
+slider = document.getElementById('myRange');
 slider.oninput = function () {
     size = this.value
     dist = 30
+    if (width <= 960) {
+        size = Math.ceil(size / 3.2);
+    }
     // to change distance b/w blocks if size of array is high
     if (size > 50) {
         dist = 15
-
     }
-
 }
 
 // slider input for algo speed
@@ -42,6 +46,9 @@ function recreateArray(inputArray) {
 
         // give height and translate the block class element
         ele.style.height = `${x * 3}px`;
+        if (width <= 960) {
+            ele.style.height = `${x * 6}px`;
+        }
         ele.style.transform = `translate(${i * dist}px)`;
 
         // creating label to label the blocks with element size
@@ -56,12 +63,17 @@ function recreateArray(inputArray) {
             let m = document.querySelectorAll('.block');
             m[i].style.width = "10px";
         }
+        if (width <= 960) {
+            let m = document.querySelectorAll('.block')
+            m[i].style.width = "15px"
+        }
         arr.push(x);
     }
-    console.log(arr);
 }
 
 function createArray() {
+    seconds = -1;
+    updateTimer();
     // clear the element if already generated
     conid.innerHTML = ""
 
@@ -71,9 +83,11 @@ function createArray() {
         let x = Math.floor(Math.random() * 100)
         let ele = document.createElement("div")
         ele.classList.add("block")
-
         // give height and translate the block class element
         ele.style.height = `${x * 3}px`
+        if (width <= 960) {
+            ele.style.height = `${x * 6}px`;
+        }
         ele.style.transform = `translate(${i * dist}px)`
         // creating label to label the blocks with element size
         let label = document.createElement("label")
@@ -81,15 +95,18 @@ function createArray() {
         label.innerText = x
         ele.appendChild(label)
         conid.appendChild(ele)
-
+        console.log(size)
         //to change width if size>50 to fit in screen
         if (size > 50) {
             let m = document.querySelectorAll('.block')
             m[i].style.width = "10px"
         }
+        if (width <= 960) {
+            let m = document.querySelectorAll('.block')
+            m[i].style.width = "15px"
+        }
         arr.push(x)
     }
-    console.log(arr);
     pre = [...arr];
 }
 createArray()
@@ -382,7 +399,6 @@ document.getElementById('resume-button').addEventListener('click', function () {
     isPaused = false;
     startTimer();
 });
-
 function getSelectedOption() {
     var selectElement = document.getElementById("sortingAlgorithm");
     var selectedOption = selectElement.options[selectElement.selectedIndex];
@@ -392,34 +408,52 @@ function getSelectedOption() {
         if (flag === true) {
             let el = document.getElementById('info')
             el.innerHTML = `
-            <center><strong>Bubble Sort</strong></center>
-            <strong>Worst complexity&:</strong> O(n^2) <br>
-            <strong>Average complexity</strong> O(n^2)<br>
-            <strong>Best complexity:</strong> O(n)<br>
-            <strong>Space complexity:</strong> O(1)
-          `;
-
-            el.style.textAlign = 'center'; bubbleSort()
+                <center><strong>Bubble Sort</strong></center>
+                Worst complexity: O(n^2) <br>
+                Average complexity: O(n^2)<br>
+                Best complexity: O(n)<br>
+                Space complexity: O(1)
+            `;
+            el.style.textAlign = 'center';
+            bubbleSort()
         }
     }
     else if (selectedOption.innerText == "Insertion Sort") {
         if (flag === true) {
             let el = document.getElementById('info')
-            el.innerHTML = "<center><strong>Insertion Sort</strong></center><strong>Worst complexity:</strong> O(n^2) <br><strong>Average complexity:</strong> O(n^2)<br><strong>Best complexity:</strong> O(n^2)<br><strong> Space complexity:</strong> O(1)"
+            el.innerHTML = `
+                <center><strong>Insertion Sort</strong></center>
+                Worst complexity: O(n^2) <br>
+                Average complexity: O(n^2)<br>
+                Best complexity: O(n^2)<br>
+                Space complexity: O(1)
+            `;
             insertionSort()
         }
     }
     else if (selectedOption.innerText == "Selection Sort") {
         if (flag === true) {
             let el = document.getElementById('info')
-            el.innerHTML = "<center><strong>Selection Sort</strong></center><strong>Worst complexity:</strong> O(n^2) <br><strong>Average complexity:</strong> O(n^2)<br><strong>Best complexity:</strong> O(n^2)<br><strong> Space complexity:</strong> O(1)"
+            el.innerHTML = `
+                <center><strong>Selection Sort</strong></center>
+                Worst complexity: O(n^2) <br>
+                Average complexity: O(n^2)<br>
+                Best complexity: O(n^2)<br>
+                Space complexity: O(1)
+            `;
             selectionSort()
         }
     }
     else if (selectedOption.innerText == "Merge Sort") {
         if (flag === true) {
             let el = document.getElementById('info')
-            el.innerHTML = "<center><strong>Merge Sort</strong></center><strong>Worst complexity:</strong> O(n*log(n)) <br><strong>Average complexity:</strong> O(n*log(n))<br><strong>Best complexity:</strong> O(n*log(n))<br><strong> Space complexity:</strong> O(n)"
+            el.innerHTML = `
+                <center><strong>Merge Sort</strong></center>
+                Worst complexity: O(n*log(n)) <br>
+                Average complexity: O(n*log(n))<br>
+                Best complexity: O(n*log(n))<br>
+                Space complexity: O(n)
+            `;
             mergeSort(0, arr.length - 1)
             let blocks = document.querySelectorAll('.block');
             const sortAndChangeColor = async () => {
@@ -436,7 +470,13 @@ function getSelectedOption() {
     else if (selectedOption.innerText == "Quick Sort") {
         if (flag === true) {
             let el = document.getElementById('info')
-            el.innerHTML = "<center><strong>Quick Sort</strong></center><strong>Worst complexity:</strong> O(n^2) <br><strong>Average complexity:</strong> O(n log n)<br><strong>Best complexity:</strong> O(n log n)<br><strong> Space complexity:</strong> O(log n)"
+            el.innerHTML = `
+            <center><strong>Quick Sort</strong></center>
+            Worst complexity: O(n^2) <br>
+            Average complexity: O(n log n)<br>
+            Best complexity: O(n log n) <br>
+            Space complexity: O(log n)
+        `;
             let blocks = document.querySelectorAll('.block');
             let arr = [];
             for (let i = 0; i < blocks.length; i++) {
