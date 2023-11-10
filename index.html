@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.5" />
+    <title>Sorting Visualizer</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script
+      src="https://kit.fontawesome.com/b03cedb2ce.js"
+      crossorigin="anonymous"
+    ></script> -->
+  </head>
+  <body>
+    <header>
+      <h2 style="text-align: center">
+        <i class="fas fa-chart-bar"></i> Sorting Visualizer
+      </h2>
+    </header>
+    <div id="flex">
+      <div class="slidecontainer">
+        <label for="myRange">Size</label><br />
+        <input
+          type="range"
+          min="1"
+          max="100"
+          value="50"
+          class="slider"
+          id="myRange"
+        /><br />
+        <label for="speed">Speed</label><br />
+        <input
+          type="range"
+          min="1"
+          max="10"
+          value="5"
+          class="slider"
+          id="speed"
+        /><br />
+        <button id="createArray">Randomize</button>
+        <select name="sortingAlgorithm" id="sortingAlgorithm">
+          <option value="bubble">Bubble Sort</option>
+          <option value="merge">Merge Sort</option>
+          <option value="quick">Quick Sort</option>
+          <option value="insertion">Insertion Sort</option>
+          <option value="selection">Selection Sort</option>
+        </select>
+      </div>
+      <div id="info">
+        <br />
+        <strong>
+          1. Set the size of array and randomize<br />
+          2. Set the speed of animations<br />
+          3. Select the algorithm to visualise it.<br />
+          4. You can change the speed of algorithm while running.<br />
+          5. Play button to run the sorting process<br />
+        </strong>
+      </div>
+    </div>
+    <div id="array"></div>
+    <div class="controls">
+      <center>
+        <div class="btn">
+          <button id="repeat-button"><i class="fa-solid fa-repeat"></i></button>
+          <button onclick="getSelectedOption()" id="resume-button">
+            <i class="fa-solid fa-play"></i>
+          </button>
+          <button id="pause-button"><i class="fa-solid fa-pause"></i></button>
+        </div>
+      </center>
+      <div class="time">
+        <center>
+          <h4>Time <i class="fa-solid fa-stopwatch"></i></h4>
+        </center>
+        <p id="timer"><strong>0 seconds</strong></p>
+      </div>
+    </div>
+    <footer>Designed by Karthick R</footer>
+    <script src="script.js"></script>
+  </body>
+</html>
