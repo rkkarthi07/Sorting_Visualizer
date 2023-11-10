@@ -19,7 +19,7 @@ slider.oninput = function () {
     size = this.value
     dist = 30
     if (width <= 960) {
-        size = Math.ceil(size / 3.2);
+        size = Math.ceil(size / 3.9);
     }
     // to change distance b/w blocks if size of array is high
     if (size > 50) {
@@ -408,11 +408,13 @@ function getSelectedOption() {
         if (flag === true) {
             let el = document.getElementById('info')
             el.innerHTML = `
+            <h3>
                 <center><strong>Bubble Sort</strong></center>
                 Worst complexity: O(n^2) <br>
                 Average complexity: O(n^2)<br>
                 Best complexity: O(n)<br>
                 Space complexity: O(1)
+                </h3>
             `;
             el.style.textAlign = 'center';
             bubbleSort()
@@ -422,11 +424,13 @@ function getSelectedOption() {
         if (flag === true) {
             let el = document.getElementById('info')
             el.innerHTML = `
+            <h3>
                 <center><strong>Insertion Sort</strong></center>
                 Worst complexity: O(n^2) <br>
                 Average complexity: O(n^2)<br>
                 Best complexity: O(n^2)<br>
                 Space complexity: O(1)
+                </h3>
             `;
             insertionSort()
         }
@@ -435,11 +439,13 @@ function getSelectedOption() {
         if (flag === true) {
             let el = document.getElementById('info')
             el.innerHTML = `
+              <h3>
                 <center><strong>Selection Sort</strong></center>
                 Worst complexity: O(n^2) <br>
                 Average complexity: O(n^2)<br>
                 Best complexity: O(n^2)<br>
                 Space complexity: O(1)
+                </h3>
             `;
             selectionSort()
         }
@@ -448,11 +454,13 @@ function getSelectedOption() {
         if (flag === true) {
             let el = document.getElementById('info')
             el.innerHTML = `
+            <h3>
                 <center><strong>Merge Sort</strong></center>
                 Worst complexity: O(n*log(n)) <br>
                 Average complexity: O(n*log(n))<br>
                 Best complexity: O(n*log(n))<br>
                 Space complexity: O(n)
+                </h3>
             `;
             mergeSort(0, arr.length - 1)
             let blocks = document.querySelectorAll('.block');
@@ -471,11 +479,13 @@ function getSelectedOption() {
         if (flag === true) {
             let el = document.getElementById('info')
             el.innerHTML = `
+            <h3>
             <center><strong>Quick Sort</strong></center>
             Worst complexity: O(n^2) <br>
             Average complexity: O(n log n)<br>
             Best complexity: O(n log n) <br>
             Space complexity: O(log n)
+            </h3>
         `;
             let blocks = document.querySelectorAll('.block');
             let arr = [];
