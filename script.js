@@ -9,7 +9,7 @@ let width = window.innerWidth;
 let size = 50// size of array to be created 
 let dist = 30//distance in blocks
 if (width <= 960) {
-    size = Math.ceil(size / 3.2);
+    size = Math.ceil(size / 4.4);
 }
 let conid = document.getElementById('array')
 let flag = true;
@@ -19,7 +19,7 @@ slider.oninput = function () {
     size = this.value
     dist = 30
     if (width <= 960) {
-        size = Math.ceil(size / 3.9);
+        size = Math.ceil(size / 4.4);
     }
     // to change distance b/w blocks if size of array is high
     if (size > 50) {
