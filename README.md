@@ -11,14 +11,14 @@ This is a sorting visualizer tool implemented in JavaScript, HTML, and CSS. It a
 ## Usage
 
 1. **Set Array Size:** Use the slider to set the size of the array.
-2. **Create Array:** Click the "Create Array" button to generate a random array based on the selected size.
+2. **Create Array:** Click the "Randomize" button to generate a random array based on the selected size.
 3. **Select Sorting Algorithm:** Choose a sorting algorithm from the dropdown menu.
 4. **Set Speed:** Adjust the speed of the visualization using the speed slider.
 5. **Start Sorting:** Click the "Resume" button to start the sorting process.
 6. **Pause Sorting:** Click the "Pause" button to temporarily halt the sorting process.
 7. **Repeat:** Click the "Repeat" button to reset the array and restart the sorting process.
 
-**Note:** Avoid clicking "Repeat" or "Create Array" during the sorting process, as it may interfere with the ongoing visualization.
+**Note:** Avoid clicking "Repeat" or "Randomize" during the sorting process, as it may interfere with the ongoing visualization.
 
 ## Sorting Algorithms
 
