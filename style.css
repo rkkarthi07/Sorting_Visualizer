@@ -155,7 +155,7 @@ footer{
     background-color: rgb(243, 243, 181) ;
     box-shadow: 5px 0px 8px rgba(0, 0, 0, 0.9);
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 960px) {
     header{
       padding: 12px;
     }

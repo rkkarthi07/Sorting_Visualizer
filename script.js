@@ -212,6 +212,9 @@ async function merge(l, mid, r) {
             arr[k] = right[j]
             bl[k].style.backgroundColor = 'palevioletred'
             bl[k].style.height = `${right[j] * 3}px`;
+            if (width <= 960) {
+                bl[k].style.height = `${right[j] * 6}px`;
+            }
             bl[k].children[0].innerText = right[j]
             j++
             k++
@@ -220,6 +223,9 @@ async function merge(l, mid, r) {
             arr[k] = left[i]
             bl[k].style.backgroundColor = 'palevioletred'
             bl[k].style.height = `${left[i] * 3}px`;
+            if (width <= 960) {
+                bl[k].style.height = `${left[i] * 6}px`;
+            }
             bl[k].children[0].innerText = left[i]
             i++
             k++
