@@ -45,4 +45,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For questions or inquiries, please contact [Karthick R](mailto:rkkarthick68@example.com).
+For questions or inquiries, please contact [Karthick R](mailto:rkkarthick68@gmail.com).
